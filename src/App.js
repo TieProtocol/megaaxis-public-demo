@@ -11,6 +11,7 @@ import 'antd/dist/reset.css';
 import './App.css';
 import { Card, List, Spin, Space } from 'antd';
 import NETWORK_HOST from './network';
+import defaultCardIcon from './base64pic/defaultCardIcon';
 
 const testdata = [
   {
@@ -209,7 +210,6 @@ function App(){
       setState({
         ...dataFactory
       })
-      // dataSource = dataFactory.source;
     }
   }
 
@@ -227,9 +227,12 @@ function App(){
     </Space>;
   }
   
+  const onClick = (item)=>{
+    window.location.href=item.url;
+  };
+
   return <ConfigProvider theme={{
     token: { 
-      // colorBgContainer: Color.primary,
       colorBorderSecondary: Color.primary,
       colorPrimary: Color.primary 
     },
@@ -250,6 +253,7 @@ function App(){
       xl: 3,
       xxl: 3,
     }}
+    style={{ padding: '14px'}}
     dataSource={watching.source}
     renderItem={(item) => (
       item.tid === -1 ? uiLoadMore(item) :
@@ -265,8 +269,9 @@ function App(){
             background: '#555555'
           }}
           className='item-cardroot' 
-          cover={<img style={{ height: 160 }} src={item.img}/>}>
-          {item.price !== 'free' && item.price != '' ? <PriceIndicator>{item.price}</PriceIndicator>: ''}
+          onClick={()=>onClick(item)}
+          cover={<img style={{ height: 160 }} src={item.img ?? defaultCardIcon}/>}>
+          {item.price !== 0 && item.price != '' ? <PriceIndicator>{item.price}</PriceIndicator>: ''}
           <div className="item-cardroot" style={{ height: 230 }}>
             <div className='item-title-row' style={{
               display: 'flex', 
