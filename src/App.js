@@ -1,10 +1,11 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React, { useState } from 'react';
-import { Image, Button, Divider, ConfigProvider, theme } from 'antd';
+import { Image, Button, Divider, ConfigProvider, theme, Tag } from 'antd';
 import title_decorate from './svg/title-decorate.svg';
 import share_fav from './svg/share-fav.svg';
 import enter_opentarget from './svg/enter-opentarget.svg';
+import coins_fill from './svg/coins-fill.svg';
 import PriceIndicator from './ui/PriceIndicator';
 import { Rate } from 'antd';
 import 'antd/dist/reset.css';
@@ -290,6 +291,10 @@ function App(){
             <div className='item-desc-row' style={{ height: 65, overflow: 'hidden' }}>
               <p>{item.desc}</p>
             </div>
+            <div className='item-tag-date-row' style={{ display: 'flex' }}>
+              <Tag icon={<img src={coins_fill} />} style={{ color: '#d5d5d5', padding: '4px'}}><Space/>{item.price > 0 ? '  Paid' : '  Free'}</Tag>
+              <div style={{ color: '#a5a5a5',fontSize: 10, textAlign: 'end' ,alignSelf: 'center', width: '100%' }}>{item.updateTime ?? item.createTime}</div>
+            </div>  
           </div>
           <div className='item-btn-row' style={{ display: 'flex' }}>
             <a href={item.url} style={{ width: '100%'}}>
