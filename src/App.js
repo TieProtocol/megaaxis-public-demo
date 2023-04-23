@@ -271,7 +271,7 @@ function App(){
           }}
           className='item-cardroot' 
           onClick={()=>onClick(item)}
-          cover={<img style={{ height: 160 }} src={item.img ?? defaultCardIcon}/>}>
+          cover={<img style={{ height: 160 }} src={item.avatar ?? defaultCardIcon}/>}>
           {item.price !== 0 && item.price != '' ? <PriceIndicator>{item.price}</PriceIndicator>: ''}
           <div className="item-cardroot" style={{ height: 230 }}>
             <div className='item-title-row' style={{
