@@ -281,14 +281,14 @@ function App(){
             }}>
               <h2 style={{ display: 'flex' }}>
                 {item.name}
-                <img src={title_decorate} style={{ display: 'inline-block'}}/>
+                <img src={title_decorate} style={{ marginLeft: 4, display: 'inline-block'}}/>
               </h2>
             </div>
             <div className='item-star-row'>
               <Rate disabled style={{ fontSize: 13, marginInlineEnd: 4}} defaultValue={5} />
             </div>
-            <Divider style={{ margin: '14px 0' }}/>
-            <div className='item-desc-row' style={{ height: 65, overflow: 'hidden' }}>
+            <Divider style={{ margin: '10px 0' }}/>
+            <div className='item-desc-row' style={{ height: 80, overflow: 'hidden' }}>
               <p>{item.desc}</p>
             </div>
             <div className='item-tag-date-row' style={{ display: 'flex' }}>
